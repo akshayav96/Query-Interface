@@ -22,13 +22,6 @@ with open("stopwords.dat","rb") as file:
      stop_words= pickle.load(file)
 
 
-
-
-
-
-
-
-
 def similarity(query_user,i):
     """Returns the cosine similarity between query and document id.
     Note that we don't bother dividing by the length of the query
@@ -53,7 +46,6 @@ def do_search(queryinput):
     similarity."""
     idlist =[]
     query_user = tokenize(queryinput)
-    global scores
     if query_user == []:
         sys.exit()
     # find document ids containing all query terms.  Works by
