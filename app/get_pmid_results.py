@@ -15,7 +15,7 @@ def get_pmid_results(pmids):
     table = pd.DataFrame()
     pmid_dict = {}
 
-    cols = ['PMID', 'ISSN', 'Volume', 'Issue', 'Year', 'Month', 'Journal Title', 
+    cols = ['PMID', 'ISSN', 'Volume', 'Issue', 'Year', 'Month', 'Journal Title',
             'Article Title', 'Abstract', 'Affiliation', 'Publication Type', 'Authors', 'MeSH Terms']
 
     for pm in pmids:
@@ -35,7 +35,7 @@ def get_pmid_results(pmids):
         #get mesh entries
         c.execute('''SELECT * FROM mesh WHERE pmid=%s''', (pm,))
         for m in c.fetchall():
-            term = '/'.join(([2],i[3]))
+            term = '/'.join((m[3],m[4]))
             mesh.append(term)
         entry.append('| '.join(mesh))
         #compile the table
@@ -51,7 +51,7 @@ def get_pmid_results(pmids):
     table.Month = table.Month.astype(int)
     table['Publication Information'] = table['Journal Title'] + ', '+ table['Year'].map(str) + " " + table['Month'].apply(lambda x: calendar.month_abbr[x])+"; "+ table['Volume'].map(str) + "("+ table['Issue'].map(str)+ ")"
     results_table = table.applymap(str)[['PMID','Authors',  'Article Title', 'Publication Information']]
-    
+
     #return results_table, pmid_dict
     return results_table
 
@@ -61,4 +61,3 @@ def get_pmid_results(pmids):
 
 #testcode
 #table = get_pmid_results(pmids)
-

@@ -1,10 +1,11 @@
 <!doctype html>
-<title>Results</title>
+<title>Query Results</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<a href="/">Submit Another Query</a>
 <div class=page>
-  <h1>Models and Results</h1>
- 
-    <h2>{{title}}</h2>
+  <h1>Model Results</h1>
+  {% for table in tables %}
+    <h2>{{titles[loop.index]}}</h2>
     {{ table|safe }}
- 
+  {% endfor %}
 </div>
