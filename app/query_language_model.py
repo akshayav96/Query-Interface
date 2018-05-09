@@ -30,7 +30,7 @@ def query_language_model(query):
     #subset - this keeps all of the records with the shape of the query language model
     relevant = subset[~(subset==0).all(1)]
 
-    contained_pmids = lm_dict['PMID'][np.nonzero(np.sum(relevant, axis = 1))[0]]
+    contained_pmids = lm_dict['PMID'][np.nonzero(np.sum(subset, axis = 1))[0]]
 
     scores = {}
     for i, j in zip(np.arange(0, len(relevant),1), contained_pmids):
