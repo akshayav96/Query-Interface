@@ -1,4 +1,4 @@
-import pickle 
+import pickle
 from collections import defaultdict
 import math
 import pandas as pd
@@ -34,14 +34,14 @@ def similarity(query_user,i):
     Note that we don't bother dividing by the length of the query
     vector, since this doesn't make any difference to the ordering of
     search results."""
-   
+
     similarity = 0.0
-    
-    
-    for term in query_user: 
+
+
+    for term in query_user:
         tf1 = query_user.count(term)            #frequency of term in query
         idf1 = idf [term].values                          #idf of term in query
-        tfidf_query = tf1*idf1                  #tfidf vector of query 
+        tfidf_query = tf1*idf1                  #tfidf vector of query
         tfidf_doc = model(term, i)   #tfidf vector of the document
         similarity += tfidf_query*tfidf_doc
     similarity = similarity / len_doc[i]
@@ -53,7 +53,7 @@ def do_search(queryinput):
     similarity."""
     idlist =[]
     query_user = tokenize(queryinput)
-    
+
     if query_user == []:
         sys.exit()
     # find document ids containing all query terms.  Works by
