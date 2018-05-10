@@ -1,0 +1,22 @@
+body            { font-family: "Helvetica", "Helvetica", sans-serif;}
+a, h1, h2       { color: #0096ff; }
+h1, h2          { margin: 0; text-align: center;}
+h1              { border-bottom: 4px solid #eee; }
+h2              { font-size: 3em; }
+
+
+
+/* tr:hover            { background-color: #ffff99;}*/
+
+td.details-control {
+    text-align:center;
+    color:forestgreen;
+cursor: pointer;
+}
+tr.shown td.details-control {
+text-align:center;
+color:red;
+}
+div.dataTables_wrapper {
+        margin-bottom: 3em;
+    }
