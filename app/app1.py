@@ -36,10 +36,12 @@ def show_tables():
 	if request.method == 'POST':
 		text = request.form['text']
 		results1 = do_search(text)
-		females = get_pmid_results(results1)
+		females = get_pmid_results(results1)[1]
 		results2 = query_language_model(text)
-		males = get_pmid_results(results2)
-		return render_template('view.html',tables=[females.to_html(classes='female'), males.to_html(classes='male')], titles = ['na', 'TF-IDF', 'Language Model'])
+		males = get_pmid_results(results2)[1]
+		results3 = query_language_model(text)
+		agender = get_pmid_results(results3)[1]
+		return render_template('view.html',tables=[females.to_html(classes='female'), males.to_html(classes='male'), agender.to_html(classes='agender')], titles = ['na', 'TF-IDF', 'Language Model', 'Vector Space Model'])
 
 
 

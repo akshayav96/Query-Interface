@@ -37,23 +37,24 @@ def get_pmid_results(pmids):
         for m in c.fetchall():
             term = '/'.join((m[3],m[4]))
             mesh.append(term)
-        entry.append('| '.join(mesh))
+        entry.append('  |  '.join(mesh))
         #compile the table
         table = table.append(pd.Series(entry), ignore_index= True)
 
         #create the dictionary
         pmid_dict[pm] = pd.DataFrame(entry, index = cols, columns = ['Value'])
-
+    c.close()
+    cnx.close()
     #name and reorder the columns
     table.columns = cols
     table.PMID = table.PMID.astype(int)
     table.Year = table.Year.astype(int)
     table.Month = table.Month.astype(int)
     table['Publication Information'] = table['Journal Title'] + ', '+ table['Year'].map(str) + " " + table['Month'].apply(lambda x: calendar.month_abbr[x])+"; "+ table['Volume'].map(str) + "("+ table['Issue'].map(str)+ ")"
-    results_table = table.applymap(str)[['PMID','Authors',  'Article Title', 'Publication Information']]
+    short_table = table.applymap(str)[['PMID','Authors',  'Article Title', 'Publication Information']]
 
     #return results_table, pmid_dict
-    return results_table
+    return short_table, table.drop('Publication Information', axis = 1)
 
 
 # In[19]:

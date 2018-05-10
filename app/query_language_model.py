@@ -19,7 +19,7 @@ def query_language_model(query):
 
     #process the query
     q_terms = query.translate(str.maketrans(" ", " ", string.punctuation+'0123456789'))
-    q_terms = [SnowballStemmer("english").stem(w) for w in word_tokenize(q_terms)]
+    q_terms = [SnowballStemmer("english").stem(w) for w in word_tokenize(q_terms) if w in lm_dict['terms']]
     q_terms = [w for w in q_terms if not w in set(stopwords.words('english'))]
     query_vector = np.asarray(pd.Series(pd.Series(q_terms).value_counts(normalize = True), index = lm_dict['terms']).fillna(0.00001))
 
