@@ -11,6 +11,8 @@ import calendar
 def get_pmid_results(pmids):
     cnx = mysql.connector.connect(user='bme223b', password='bme223b',                               host='localhost',                               database='medline_db')
     c = cnx.cursor(buffered = True)
+    
+    pd.set_option('display.max_colwidth', -1)
 
     table = pd.DataFrame()
     pmid_dict = {}
