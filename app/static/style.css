@@ -15,17 +15,17 @@ table.dataframe, .dataframe th, .dataframe td {
   font-size: 0.9em;
 }
 
-.male th {
+.tfidf th {
     background-color: #0096ff;
     color: white;
 }
 
-.female th {
+.lm th {
     background-color: #0096ff;
     color: white;
 }
 
-.agender th {
+.vsm th {
     background-color: #0096ff;
     color: white;
 }
