@@ -19,12 +19,12 @@ def show_tables():
 	if request.method == 'POST':
 		text = request.form['text']
 		results1 = do_search(text)
-		females = get_pmid_results(results1)[1]
+		tfidf_df = get_pmid_results(results1)[1]
 		results2 = query_language_model(text)
-		males = get_pmid_results(results2)[1]
+		lm_df = get_pmid_results(results2)[1]
 		results3 = query_language_model(text)
-		agender = get_pmid_results(results3)[1]
-		return render_template('view.html',tables=[females.to_html(classes='female'), males.to_html(classes='male'), agender.to_html(classes='agender')], titles = ['na', 'TF-IDF', 'Language Model', 'Vector Space Model'])
+		vsm_df = get_pmid_results(results3)[1]
+		return render_template('view.html',tables=[tfidf_df.to_html(classes='tfidf'), lm_df.to_html(classes='lm'), vsm_df.to_html(classes='vsm')], titles = ['na', 'TF-IDF', 'Language Model', 'Vector Space Model'])
 
 
 
