@@ -5,6 +5,31 @@ h1              { border-bottom: 4px solid #eee; }
 h2              { font-size: 3em; }
 
 
+table.dataframe, .dataframe th, .dataframe td {
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  border-collapse: collapse;
+  text-align:left;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+}
+
+.male th {
+    background-color: #0096ff;
+    color: white;
+}
+
+.female th {
+    background-color: #0096ff;
+    color: white;
+}
+
+.agender th {
+    background-color: #0096ff;
+    color: white;
+}
+
 
 /* tr:hover            { background-color: #ffff99;}*/
 
