@@ -100,7 +100,7 @@ def model(term,id):
         return 0.0
 
 def inverse_document_frequency(term):
-    N = 149995
+    N = 110435
     """Returns the inverse document frequency of term.  Note that if
     term isn't in the dictionary then it returns 0, by convention."""
     if term in dictionary:
