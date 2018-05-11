@@ -9,6 +9,12 @@ import mysql.connector
 import calendar
 
 def get_pmid_results(pmids):
+    """
+    Function that populates data frames with publication information. Input is a list of PubMed IDs; also requires the medline_db database to be run on the machine, and the appropriate user to be set up within SQL (see below).
+    Outputs two pandas DataFrame objects: a shortened table with a subset of relevant fields, and a full table with the columns 'PMID', 'ISSN', 'Volume', 'Issue', 'Year', 'Month', 'Journal Title',
+            'Article Title', 'Abstract', 'Affiliation', 'Publication Type', 'Authors', and 'MeSH Terms'.
+    
+    """
     cnx = mysql.connector.connect(user='bme223b', password='bme223b',                               host='localhost',                               database='medline_db')
     c = cnx.cursor(buffered = True)
     
