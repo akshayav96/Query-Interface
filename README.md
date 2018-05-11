@@ -51,17 +51,17 @@ The Language Model algorithm generates a simple probability distribution for eac
 
 When a query is submitted through the flask website, the query is subjected to the same preprocessing methods and then constrained to a vector having the same shape as any entry within the data model. To save time, the model only selects the entries where at least one of the query words appears in the probability distribution. Then, query and document models are compared using the Kullback–Leibler divergence measure. This is calculated using the entropy function within the scipy library. This measure was selected on the basis that it generally gives better information retrieval results than query-likelihood or document-likelihood methods. The PMIDS with the lowest entropy scores are returned (in this case, 20 IDs are returned). One feature that could limit this model, and could be improved upon in the future, is the smoothing. On a machine with 8 GB of RAM, it was difficult to perform computations on the probability distribution matrix. However, probability distribution has been calculated for the entire corpus, enabling computation if a more efficient method or machine is found.
 
+## Contributions
+
+**Jennifer Polson (JP)**
+- parsed XML files (see lib-processing/XMLParsing_withLanguage.ipynb)
+- created language model (see app/language_model and lib-processing/Language Model_Creation.ipynb)
+- created function get_pmid_results.py to query database and return results
+- implemented the DataTables rendering within the results view
+
 ## Some Notes
 
 The lib-processing directory contains pieces of code used to generate other components of this project not directly involved in the app. The contents are as follows: 
 - XMLParsing_withLanguage.ipynb (JP): a python notebook, through with the XML files were parsed, generating portable .csv files for the group to use for the rest of the project. 
 - fill_db.py (KG): a python script responsible for populating the SQL database from the .csv files generated in the previous file.
 - Language Model_Creation.ipynb (JP) : a python notebook responsible for generating and storing the language model 
-
-## Contributions
-
-Jennifer Polson (JP)
-- parsed XML files (see lib-processing/XMLParsing_withLanguage.ipynb)
-- created language model (see app/language_model and lib-processing/Language Model_Creation.ipynb)
-- created function get_pmid_results.py to query database and return results
-- assisted with rendering the results view, specifically the DataTables implementation, as well as some CSS
