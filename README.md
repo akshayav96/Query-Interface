@@ -15,7 +15,7 @@ $ git clone https://github.com/jspolson/BE224B.git
 
 4. Import the .sql file to add the database; you should now have medline_db among your list of tables.
 
-5. Create the following user: be223b, identified by 223b, by running these commands in your terminal. 
+5. Create the following user in mysql by running these commands in your terminal or using your client. 
 
 ```
 $ create user 'bme223b'@'localhost' identified by 'bme223b';
