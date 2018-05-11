@@ -45,7 +45,7 @@ A high-level overview of our application is illustrated in the diagram below. Fu
 ![ScreenShot](https://raw.github.com/jspolson/BE224B/master/224B_Overview.png)
 
 Continue reading for more detailed descriptions of each model's algorithm.
-
+## Models and Algorithms
 ### Language Model 
 The Language Model algorithm generates a simple probability distribution for each document by counting the frequency of words in the document and dividing this by the total length of the document. First, each document is pre-processed in a consistent format: punctuation and numbers are removed, and the tokenized words are stemmed using the SnowballStemmer library. This model utilizes the TfidfVectorizer module from scikit-learn to generate an L1-normalized distribution function for each document, in the form of a sparse matrix. This model can be called upon to perform a language model-based query. Of note, the text use to generate this was both the abstract text as well as the article title, given that an abstract was not provided for every article within the XML files. This model weighs words in the title slightly, such that their probability will be higher when considering the document distribution. The overall model is saved in a pickle file; pushing the model to a database and querying it was less efficient. 
 
@@ -58,3 +58,10 @@ The lib-processing directory contains pieces of code used to generate other comp
 - fill_db.py (KG): a python script responsible for populating the SQL database from the .csv files generated in the previous file.
 - Language Model_Creation.ipynb (JP) : a python notebook responsible for generating and storing the language model 
 
+## Contributions
+
+Jennifer Polson (JP)
+- parsed XML files (see lib-processing/XMLParsing_withLanguage.ipynb)
+- created language model (see app/language_model and lib-processing/Language Model_Creation.ipynb)
+- created function get_pmid_results.py to query database and return results
+- assisted with rendering the results view, specifically the DataTables implementation, as well as some CSS
