@@ -2,7 +2,7 @@
 
 A small app for querying PubMed entries using a tf-idf, vector space, and language model.
 
-### To install and run the app:
+## Installation Instructions
 1. Clone the repository:
 
 ```
