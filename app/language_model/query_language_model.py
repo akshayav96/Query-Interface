@@ -8,6 +8,11 @@ import pickle
 import numpy as np
 
 def query_language_model(query):
+    """
+    Receives a string of text (named query) to process, generate a language model, and compare this model to language models from the corpus.
+    Relies on a previously generate language model, here loaded as a pickle file.
+    Outputs a list of 20 PubMed IDs that are most relevant to the query, when comparing the query language model to document language model by KL divergence.
+    """
     #open the model - language_model file must be in the folder
     with open('language_model/language_model.pickle', 'rb') as handle:
         lm_dict = pickle.load(handle)
