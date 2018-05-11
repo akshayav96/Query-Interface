@@ -60,6 +60,7 @@ When a query is submitted through the flask website, the query is subjected to t
 - implemented the DataTables rendering within the results view
 
 ## Some Notes
+*The query itself takes some time (~2-3 minutes on 8GB machine). We thank you for your patience!*
 
 The lib-processing directory contains pieces of code used to generate other components of this project not directly involved in the app. The contents are as follows: 
 - XMLParsing_withLanguage.ipynb (JP): a python notebook, through with the XML files were parsed, generating portable .csv files for the group to use for the rest of the project. 
