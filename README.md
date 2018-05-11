@@ -22,7 +22,7 @@ $ create user 'bme223b'@'localhost' identified by 'bme223b';
 $ grant all privileges on medline_db.* to 'bme223b'@'localhost' identified by 'bme223b';
 ```
 
-6. Change directory to the app portion of the repository, and install any required packages:
+6. Change directory to the app portion of the repository, and install any required packages.
 
 ```
 $ cd BE224B/app
