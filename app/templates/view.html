@@ -27,44 +27,19 @@
 
 <script>
 $(document).ready(function() {
-    $('table.female').DataTable();
+    $('table.tfidf').DataTable();
 } );
 </script>
 
 <script>
 $(document).ready(function() {
-    $('table.male').DataTable();
+    $('table.lm').DataTable();
 } );
 </script>
-<!--
-<script>
-$(document).ready(function() {
-    $('table.agender').DataTable();
-} );
-</script>
--->
-<script>
-$(document).ready(function() {
-  $('table.agender').DataTable( {
-      responsive: {
-          details: {
-              renderer: function ( api, rowIdx, columns ) {
-                  var data = $.map( columns, function ( col, i ) {
-                      return col.hidden ?
-                          '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                              '<td>'+col.title+':'+'</td> '+
-                              '<td>'+col.data+'</td>'+
-                          '</tr>' :
-                          '';
-                  } ).join('');
 
-                  return data ?
-                      $('<table/>').append( data ) :
-                      false;
-              }
-          }
-      }
-  } );
+<script>
+$(document).ready(function() {
+    $('table.vsm').DataTable();
 } );
 </script>
 
