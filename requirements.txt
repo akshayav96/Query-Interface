@@ -1,0 +1,6 @@
+pandas==0.22.0
+Flask==0.12
+nltk==3.2.5
+numpy==1.13.3
+scipy==1.0.0
+mysql_connector_repackaged==0.3.1
